@@ -71,13 +71,10 @@ async function updateDepartment(req, res) {
 async function deleteDepartment(req, res) {
   //console.log(req.params);
   try {
-    const codigo = req.params;
+    const codigo = req.params.codigo;
     const searchDepartment = await Department.findOne({ codigo: codigo });
     console.log(searchDepartment);
-    const deleteDepartment = { codigo: codigo };
-    const departmentDeleted = await Department.findOneAndDelete({
-      deleteDepartment,
-    });
+    const departmentDeleted = await Department.findOneAndDelete(codigo);
     console.log(departmentDeleted);
 
     if (!departmentDeleted) {

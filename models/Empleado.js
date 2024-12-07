@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const EmpleadoSchema = new Schema({
+const EmployeeSchema = new Schema({
   codigo: { type: Number, required: true, unique: true },
   nombre: { type: String, required: true },
   apellido1: { type: String, required: true },
@@ -8,10 +8,9 @@ const EmpleadoSchema = new Schema({
   codigo_departamento: {
     type: Schema.Types.ObjectId,
     ref: "Department",
-    required: true,
   },
 });
 
-const Empleado = model("Empleado", EmpleadoSchema);
+const Employee = model("Employee", EmployeeSchema);
 
-export default Empleado;
+export default Employee;
